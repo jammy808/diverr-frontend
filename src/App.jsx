@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 
 import FreelancerLogin from './Login/FreelancerLogin';
-import FreelancerRegister from './Register/FreelancerLogin';
+import FreelancerRegister from './Register/FreelancerRegister';
 import FreelancerProfile from './FreelancerProfile/FreelancerProfile';
 import FreelancerRequests from './FreelancerRequests/FreelancerRequests';
 import BrowseGigs from './BrowseGigs/BrowseGigs';

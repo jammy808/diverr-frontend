@@ -1,0 +1,152 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+    
+    .wrapper-4 {
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      justify-content: space-between;
+      width: 100%;
+      background-color:  #ededee; 
+
+      
+    }
+  
+    
+    .title-text-4 {
+      display: flex;
+      justify-content: center;
+      font-size: 30px; /* Larger font size */
+      font-weight: bold; /* Make it bold for prominence */
+      text-transform: uppercase; /* Optional, to make all caps */
+      letter-spacing: 2px; /* Optional, to give some spacing between letters */
+      position: relative; /* To enable positioning for animation */
+      animation: slide-out 0.9s ease-out; /* Animation of 1 second with easing */
+    }
+    
+    
+    
+    .form-container-4, .gif-container-4 {
+      padding: 150px;
+      /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    }
+    
+    .form-container-4 {
+      width: 40%;
+    }
+    
+    .gif-container-4 {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .gif-4 {
+      max-width: 500px;
+      max-height: 500px;    
+    }
+  
+    
+    h2 {
+      text-align: left;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group-4{
+      margin-bottom: 16px;
+    }
+    
+    
+    .input {
+      width: 80%;
+      background-color: rgba(235, 238, 245, 0.943);
+      margin: 35px auto;
+      padding: 10px 15px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border 0.3s ease;
+      display: block;
+      
+    }
+    
+    .input:focus {
+      border-color: #512da8;
+      outline: none;
+    }
+    
+    .button {
+      width: 50%;
+      padding: 10px 45px;
+      margin: 10px auto; /* This will center the button */
+      display: block; /* Change to block to center it horizontally */
+      justify-content: center;
+      font-size: 16px;
+      background-color: #512da8;
+      color: #fff;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+  
+    
+    .button:hover {
+      background-color: #341f69;
+    }
+    
+    .link {
+      margin-top: 16px;
+      text-align: center;
+      margin-left: 25px auto;
+      font-size: 14px;
+      font-weight: 500; /* Make it a bit bolder */
+      letter-spacing: 0.5px; /* Slight letter spacing */
+      line-height: 1.6; /* Better line spacing */
+      
+    }
+    
+    .link a {
+      color: #3327b5;
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent; /* Add a bottom border for the effect */
+      transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition */
+    }
+    
+    .link a:hover {
+      text-decoration: none; /* Avoid underline on hover */
+      color: rgb(11, 8, 71); /* Color change on hover */
+      /* border-bottom: 2px solid rgb(132, 126, 239); Add a bottom border on hover */
+    }
+  
+  
+    /* Define the keyframes for sliding in from the left */
+  @keyframes slide-out {
+    0% {
+        transform: translateX(100%); 
+        opacity: 0; 
+    }
+    50% {
+        transform: translateX(-15%); /* End position (current position) */
+        opacity: 1; /* Fully visible */
+    }
+  
+    100%{
+      transform: translateX(0); /* End position (current position) */
+        opacity: 1; /* Fully visible */
+    }
+  }
+    

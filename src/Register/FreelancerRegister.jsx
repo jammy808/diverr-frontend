@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './ClientRegister.css';
+import './FreelancerRegister.css';
 
-function ClientRegister() {
+function FreelancerRegister() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ function ClientRegister() {
 
     try {
       // Make POST request to the server
-      const response = await fetch('http://localhost:8000/register/client', {
+      const response = await fetch('http://localhost:8000/register/freelancer', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Specify the content type
@@ -46,12 +46,18 @@ function ClientRegister() {
   };
 
   return (
-    <div className="wrapper-3">
-      <div className="form-container-3">
-        <h2 className='title-text-3'>Client Sign Up</h2>
+    <div className='wrapper-4'>
+
+      <div className="gif-container-4">
+        <img className='gif-4' src="/src/Register/Register_Images/freelancer_register.gif" alt="" />
+      </div>
+
+      <div className='form-container-4'>
+        <h2 className='title-text-4'>Freelancer Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <div className='form-group-3'>
-          <label htmlFor="username" ></label>
+          <div className='form-group-4'>
+            
+            <label htmlFor="username" ></label>
             <input
               type="text"
               id="username"
@@ -62,9 +68,8 @@ function ClientRegister() {
               className='input'
             />
           </div>
-
-          <div>
-          <label htmlFor="email" ></label>
+          <div >
+            <label htmlFor="email" ></label>
             <input
               type="text"
               id="username"
@@ -73,6 +78,7 @@ function ClientRegister() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className='input'
+
             />
           </div>
 
@@ -90,7 +96,7 @@ function ClientRegister() {
           </div>
 
           <div >
-          <label htmlFor="password" ></label>
+            <label htmlFor="password" ></label>
             <input
               type="password"
               id="password"
@@ -99,22 +105,19 @@ function ClientRegister() {
               onChange={(e) => setPassword(e.target.value)}
               required
               className='input'
+
             />
           </div>
-          <button type="submit" className="button">
+          <button type="submit" className='button'>
             Sign Up
           </button>
         </form>
-        <div className="link">
-          <Link to="/login/client">Have an account? Sign in here</Link>
+        <div className='link'>
+          <Link to="/login/freelancer">Have an account? Sign in here</Link>
         </div>
-      </div>
-
-      <div className="gif-container-3">
-        <img className='gif-3' src="/src/Register/Register_Images/Client_Register-2.gif" alt="" />
       </div>
     </div>
   )
 }
 
-export default ClientRegister
+export default FreelancerRegister
