@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-//import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function ClientSide() {
   const [user , setUser] = useState("");
+  const navigate = useNavigate();
 
   const fetchProfile = async () => {
     try {
@@ -14,6 +15,10 @@ function ClientSide() {
     } catch (err) {
       console.log(err.response ? err.response.data.message : 'Failed to fetch profile');
     }
+  };
+
+  const handleNavigate = (toKey) => {
+    navigate('/pay', { state: { toKey } });
   };
 
   useEffect(() => {
@@ -31,6 +36,7 @@ function ClientSide() {
             .map((gig) => (
                 <li key={gig._id}>
                 <h3>{gig.title}</h3>
+                <button onClick={() => handleNavigate(gig.workingFreelancer.publicKey)}>Pay</button>
                 </li>
             ))}
         </ul>

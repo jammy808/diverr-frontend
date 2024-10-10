@@ -6,6 +6,7 @@ function FreelancerRegister() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [publicKey , setPublicKey ] = useState('');
   const navigate = useNavigate();
 
   // Handle form submission
@@ -13,7 +14,7 @@ function FreelancerRegister() {
     e.preventDefault(); // Prevent default form submission
 
     // Prepare form data
-    const formData = { username, email ,password };
+    const formData = { username, email ,password , publicKey };
 
     try {
       // Make POST request to the server
@@ -32,6 +33,7 @@ function FreelancerRegister() {
         // Reset form inputs
         setUsername('');
         setEmail('');
+        setPublicKey('');
         setPassword('');
         navigate('/');
       } else {
@@ -65,6 +67,17 @@ function FreelancerRegister() {
             id="username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+          />
+        </div>
+        <div style={{ marginBottom: '12px' }}>
+          <label htmlFor="username" style={{ display: 'block', marginBottom: '4px' }}>Public Key</label>
+          <input
+            type="text"
+            id="username"
+            value={publicKey}
+            onChange={(e) => setPublicKey(e.target.value)}
             required
             style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
           />

@@ -20,6 +20,7 @@ import ViewFreelancer from './ViewFreelancer/ViewFreelancer';
 import FreelancerInvites from './FreelancerInvites/FreelancerInvites';
 import ViewApplicants from './ViewApplicants/ViewApplicants';
 import ClientSide from './OngoingGigs/ClientSide';
+import Pay from './Pay/Pay';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/view/invites" element={<FreelancerInvites />} />
         <Route path="/view/applicants" element={<ViewApplicants />} />
         <Route path="/gigs/client-side" element={<ClientSide />} />
+        <Route path="/pay" element={<Pay />} />
     
       </Routes>
     </Router>
