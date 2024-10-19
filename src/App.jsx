@@ -43,13 +43,16 @@ function App() {
         {/* Client's Routes */}
         <Route path="/login/client" element={<ClientLogin />} />
         <Route path="/register/client" element={<ClientRegister />} />
-        <Route path="/profile/client" element={<ClientProfile />} />
-        <Route path="/createGig" element={<CreateGig />} />
+
+        <Route path="/profile/client" element={<ClientProfile />} >
+          <Route path="createGig" element={<CreateGig />} />
+          <Route path="view/invites" element={<FreelancerInvites />} />
+          <Route path="view/applicants" element={<ViewApplicants />} />
+          <Route path="gigs/client-side" element={<ClientSide />} />
+        </Route>
+        
         <Route path="/browse/freelancers" element={<BrowseFreelancer />} />
         <Route path="/view/freelancer" element={<ViewFreelancer />} />
-        <Route path="/view/invites" element={<FreelancerInvites />} />
-        <Route path="/view/applicants" element={<ViewApplicants />} />
-        <Route path="/gigs/client-side" element={<ClientSide />} />
         <Route path="/pay" element={<Pay />} />
     
       </Routes>

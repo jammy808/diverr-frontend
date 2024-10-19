@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+
+.logo{
+    font-family: 'Leckerli One' , cursive;
+    margin-left: 4%;
+    margin-top: 0.4%;
+    font-size: 2.5em;
+}
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    margin: 20px auto;
+}
+.image {
+    height: 30em;
+    width: 70em;
+    border-radius: 15px;
+    overflow: hidden;
+    object-fit: cover;
+}
