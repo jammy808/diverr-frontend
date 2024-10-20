@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './FreelancerInvites.css'; // Ensure that you import the CSS
 
 const FreelancerInvites = () => {
   const [gigs, setGigs] = useState([]);
@@ -45,31 +46,38 @@ const FreelancerInvites = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Freelancer Invitation</h2>
+    <div className='main-freelancer-container'>
+    <div className="freelancer-invites-container">
+      <h2 className="freelancer-invites-header">Your Invites</h2>
       {gigs.length > 0 ? (
         gigs.map((gig) => (
-          <div key={gig._id} className="gig">
-            <h3>Gig: {gig.title}</h3>
-            <p>Description: {gig.description}</p>
-            <h4>Invited Freelancers:</h4>
-            <ul>
+          <div key={gig._id} className="freelancer-invites-card">
+            <h3 className="freelancer-invites-gig-title">Gig: {gig.title}</h3>
+            <p className="freelancer-invites-gig-description">Description: {gig.description}</p>
+            <h4 className="freelancer-invites-freelancer-title">Invited Freelancers:</h4>
+            <ul className="freelancer-invites-freelancer-list">
               {gig.invitedFreelancers.length > 0 ? (
                 gig.invitedFreelancers.map((freelancer) => (
-                  <li key={freelancer._id}>
-                    {freelancer.username} - email: {freelancer.email} -   
-                    <button onClick={()=>{handleCancelInvite(gig._id , freelancer._id)}}>cancel</button>
+                  <li key={freelancer._id} className="freelancer-invites-freelancer-item">
+                    {freelancer.username} - email: {freelancer.email}
+                    <button
+                      className="freelancer-invites-cancel-button"
+                      onClick={() => handleCancelInvite(gig._id, freelancer._id)}
+                    >
+                      Cancel
+                    </button>
                   </li>
                 ))
               ) : (
-                <li>No freelancers invited yet.</li>
+                <li className="freelancer-invites-no-freelancer">No freelancers invited yet.</li>
               )}
             </ul>
           </div>
         ))
       ) : (
-        <p>No gigs available.</p>
+        <p className="freelancer-invites-no-gigs">No gigs available.</p>
       )}
+    </div>
     </div>
   );
 };

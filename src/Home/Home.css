@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
-.logo{
+.home-box{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+.home-content {
+    overflow-y: auto;
+  }
+
+.home-logo{
     font-family: 'Leckerli One' , cursive;
-    margin-left: 4%;
+    margin-left: 26%;
     margin-top: 0.4%;
     font-size: 2.5em;
 }
@@ -15,8 +25,49 @@
 }
 .image {
     height: 30em;
-    width: 70em;
+    width: 88em;
     border-radius: 15px;
     overflow: hidden;
     object-fit: cover;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar-login{
+   margin-right: 2%;
+   display: flex;
+  }
+
+.explore{
+    margin-top: 3px;
+    text-decoration: none;
+    font-size: 1.25em;
+    color: black;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.image-container {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }

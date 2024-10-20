@@ -1,0 +1,145 @@
+/* Main freelancer container */
+.freelancer-container {
+  width: 95%;
+  height: 90%;
+  margin: 33px auto;
+  padding: 20px;
+  background-color: #f5f5ff; /* Light blue for the main card background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Freelancer details section */
+.freelancer-details {
+  border-bottom: 1px solid #ccc; /* Light gray border for separation */
+  padding-bottom: 20px;
+}
+
+.freelancer-details-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Profile image */
+.image {
+  flex: 0 0 150px;
+}
+
+.image img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Details next to the image */
+.details {
+  flex: 1;
+}
+
+.details p {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Invite section */
+.invite-section {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%;
+  flex: 1;
+}
+
+.invite-section h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.gig-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.gig-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.gig-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.invited-tag {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.invite-button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Darker blue button */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.invite-button:hover {
+  background-color: #0056b3;
+}
+
+.no-gigs {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .freelancer-details-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image {
+    margin-bottom: 20px;
+  }
+
+  .invite-button {
+    width: 100%;
+  }
+}
+
+/* Skills list */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  color:white
+}
+
+.skill-item {
+  background-color: rgb(147, 112, 222); /* Light purple background for skill tags */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+}

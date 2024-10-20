@@ -22,6 +22,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import SchoolIcon from '@mui/icons-material/School';
 import './ClientProfile.css'
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from '@mui/material';
 
 function Profile() {
 
@@ -150,6 +152,15 @@ function Profile() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.get('http://localhost:8000/logout', { withCredentials: true });
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error.response ? error.response.data : error.message);
+    }
+  };
+
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -167,6 +178,20 @@ function Profile() {
     </IconButton>
 
     <h1 className='logo'>Diverr</h1>
+
+    <div style={{width:'0px' , position:'relative' , left:'83%'}}>
+    <Button
+      onClick={handleLogout}
+      sx={{ borderRadius: '8px', textTransform: 'none',
+        '&:hover': {
+          color: 'red',
+        },
+        fontSize:'1.1em'
+      }}
+    >
+      <LogoutIcon  sx={{color:'black' , fontSize:'2.5em' ,'&:hover': {color:'red'}}}/>
+    </Button>
+    </div>
 
 
     <Drawer

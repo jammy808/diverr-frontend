@@ -1,13 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { CCarousel , CCarouselItem , CImage } from '@coreui/react'
+import { CCarousel , CCarouselItem , CImage , CDropdown , CDropdownToggle , CDropdownMenu , CDropdownItem , CDropdownDivider } from '@coreui/react'
 import './Home.css'
 import '@coreui/coreui/dist/css/coreui.min.css'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { motion } from 'framer-motion'
 
 function Home() {
   const [user , setUser] = useState("");
   const navigate = useNavigate();
+
+  const images = [
+    'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/892bad84259a1c9c66d4c30ef3505e29-1726594972/IMG_6455.jpeg',
+    'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/attachments/delivery/asset/fd054a05d3ab7b53642b11bff7d21d50-1728840987/gillian_v2.jpg',
+    'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/7f052b86a8228d0b60db4e9939db3355-1726576362/giant%20in%20desert_delivery.png',
+    'https://picsum.photos/500/700',
+    'https://picsum.photos/500/650',
+    'https://picsum.photos/350/250',
+    'https://picsum.photos/450/350',
+    'https://picsum.photos/550/400',
+    'https://picsum.photos/500/500',
+    'https://picsum.photos/500/450',
+    
+  ];
+  
+  const getRandomDirection = () => {
+    const directions = ['x', '-x', 'y', '-y'];
+    const random = Math.floor(Math.random() * directions.length);
+    return directions[random];
+  };
 
   const fetchProfile = async () => {
     try {
@@ -25,41 +47,96 @@ function Home() {
   }, []);
 
   return (
-    <>
-    <h1 className='logo'>Diverr</h1>
+    <div className="home-box">
 
-    <div className='carousel-container'>
-    <CCarousel controls indicators>
-      <CCarouselItem>
-        <CImage className="image" src={'/src/Home/img1.png'} alt="slide 1" />
-      </CCarouselItem>
-      <CCarouselItem>
-        <CImage className="image" src={'https://coreui.io/react/docs/static/vue-8a74d93fde1a02c247304291cce46797.jpg'} alt="slide 2" />
-      </CCarouselItem>
-      <CCarouselItem>
-        <CImage className="image" src={'https://coreui.io/react/docs/static/angular-2f3764e2ec8b0b47ebe68f2f80260ef1.jpg'} alt="slide 3" />
-      </CCarouselItem>
-    </CCarousel>
+      <nav className="navbar">
+        <div className="navbar-logo">
+          <h1 className='home-logo'>Diverr<span style={{color:'#4864ff' , fontSize:'1em'}}>.</span></h1>
+        </div>
+
+        
+
+        <div className="navbar-login">
+
+          <CDropdown dark>
+            <CDropdownToggle color="blue" size='lg'>Diverr Pro</CDropdownToggle>
+            <CDropdownMenu>
+              <CDropdownItem href="#">Action</CDropdownItem>
+              <CDropdownItem href="#">Another action</CDropdownItem>
+            </CDropdownMenu>
+          </CDropdown>
+
+          <div style={{paddingTop:'9px' , marginRight:'1em' , marginLeft:'1em'}}>
+            {user.type === "Client" ? 
+            ( <Link to="/browse/freelancers" className="explore">Browse freelancers</Link> ) : 
+            ( <Link to="/browse/gigs" className="explore">Browse Gigs</Link> ) }
+          </div>
+
+          {user ?
+          (
+            <div style={{paddingTop:'9px' , marginRight:'1em' , marginLeft:'1em'}}> 
+              {user.type === "Client" ? 
+              ( <Link to="/profile/client/createGig" className='explore'><AccountCircleIcon fontSize='large'/></Link> ) : 
+              ( <Link to="/profile/freelancer"className='explore'><AccountCircleIcon fontSize='large'/></Link> ) }
+            </div>
+          ) : 
+          (<CDropdown dark>
+            <CDropdownToggle color="blue" size='lg'>Login</CDropdownToggle>
+            <CDropdownMenu>
+              <CDropdownItem href="/login/client"> Client </CDropdownItem>
+              <CDropdownItem href="/login/freelancer"> Freelancer </CDropdownItem>
+            </CDropdownMenu>
+          </CDropdown> 
+          )}
+
+          
+        </div>
+      </nav>
+
+    <div className='home-content'>
+      <div className='carousel-container'>
+        <CCarousel controls indicators>
+          <CCarouselItem>
+            <CImage className="image" src={'/src/Home/img1.png'} alt="slide 1" />
+          </CCarouselItem>
+          <CCarouselItem>
+            <CImage className="image" src={'/src/Home/img2.png'} alt="slide 2" />
+          </CCarouselItem>
+          <CCarouselItem>
+            <CImage className="image" src={'https://coreui.io/react/docs/static/angular-2f3764e2ec8b0b47ebe68f2f80260ef1.jpg'} alt="slide 3" />
+          </CCarouselItem>
+        </CCarousel>
+      </div>
+      
+      <img style={{width:'100%'}} src='/src/Home/img3.png'></img>
+
+      <h1 style={{fontSize:'3.1em' , fontWeight:'450' , marginLeft:'5%' , marginBottom:'1%' , marginTop:'2%'}}>Made With Diverr</h1>
+
+      <div className="image-grid">
+      {images.map((src, index) => {
+        const direction = getRandomDirection();
+        const animation = direction.includes('x')
+          ? { x: direction === 'x' ? 100 : -100, opacity: 0 }
+          : { y: direction === 'y' ? 100 : -100, opacity: 0 };
+
+        return (
+          <motion.div
+            key={index}
+            className="image-container"
+            initial={animation}
+            animate={{ x: 0, y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
+          >
+            <img style={{borderRadius:'10px'}} src={src} alt={`img-${index}`} />
+          </motion.div>
+        );
+      })}
     </div>
 
-    <Link to="/login/client">Client Login</Link>
-    <br />
-    <br />
-    <Link to="/login/freelancer">Freelancer Login</Link>
-
-    {user ?
-      (
-        <div> 
-          {user.type === "Client" ? ( <Link to="/profile/client">Profile Client</Link> ) : ( <Link to="/profile/freelancer">Profile Freelancer</Link> ) }
-        </div>
-      ) : 
-      (<h1>Sign in</h1>)}
-
-        <div> 
-          {user.type === "Client" ? ( <Link to="/browse/freelancers">Browse freelancers</Link> ) : ( <Link to="/browse/gigs">Browse Gigs</Link> ) }
-        </div>
+      <img style={{width:'100%' , marginTop:'10%'}} src='/src/Home/img4.png'></img>
+    </div>
       
-    </>
+    </div>
   )
 }
 
