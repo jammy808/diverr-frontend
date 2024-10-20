@@ -6,6 +6,10 @@ import './Home.css'
 import '@coreui/coreui/dist/css/coreui.min.css'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { motion } from 'framer-motion'
+import img1 from './img1.png'
+import img2 from './img2.png'
+import img3 from './img3.png'
+import img4 from './img4.png'
 
 function Home() {
   const [user , setUser] = useState("");
@@ -97,10 +101,10 @@ function Home() {
       <div className='carousel-container'>
         <CCarousel controls indicators>
           <CCarouselItem>
-            <CImage className="image" src={'/src/Home/img1.png'} alt="slide 1" />
+            <CImage className="image" src={img1} alt="slide 1" />
           </CCarouselItem>
           <CCarouselItem>
-            <CImage className="image" src={'/src/Home/img2.png'} alt="slide 2" />
+            <CImage className="image" src={img2} alt="slide 2" />
           </CCarouselItem>
           <CCarouselItem>
             <CImage className="image" src={'https://coreui.io/react/docs/static/angular-2f3764e2ec8b0b47ebe68f2f80260ef1.jpg'} alt="slide 3" />
@@ -108,7 +112,7 @@ function Home() {
         </CCarousel>
       </div>
       
-      <img style={{width:'100%'}} src='/src/Home/img3.png'></img>
+      <img style={{width:'100%'}} src={img3}></img>
 
       <h1 style={{fontSize:'3.1em' , fontWeight:'450' , marginLeft:'5%' , marginBottom:'1%' , marginTop:'2%'}}>Made With Diverr</h1>
 
@@ -133,7 +137,7 @@ function Home() {
       })}
     </div>
 
-      <img style={{width:'100%' , marginTop:'10%'}} src='/src/Home/img4.png'></img>
+      <img style={{width:'100%' , marginTop:'10%'}} src={img4}></img>
     </div>
       
     </div>

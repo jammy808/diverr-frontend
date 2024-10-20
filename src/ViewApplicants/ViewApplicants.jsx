@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './ViewApplicants.css'
 
 const ViewApplicants = () => {
   const [gigs, setGigs] = useState([]);
@@ -42,31 +43,38 @@ const ViewApplicants = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Freelancer Invitation</h2>
+    <div className='main-applicants-container'>
+      <div className='applicants-container'>
+      <h2 className='applicants-header'>Freelancer Invitation</h2>
       {gigs.length > 0 ? (
         gigs.map((gig) => (
-          <div key={gig._id} className="gig">
-            <h3>Gig: {gig.title}</h3>
-            <p>Description: {gig.description}</p>
-            <h4>Applications of Freelancers:</h4>
-            <ul>
+          <div key={gig._id} className='applicants-card' >
+            <h3 className='applicants-gig-title'>Gig: {gig.title}</h3>
+            <p className='applicants-gig-description'>Description: {gig.description}</p>
+            <h4 className='applicants-gig-freelancer-title'>Applications of Freelancers:</h4>
+            <ul className='applicants-freelancer-list'>
               {gig.appliedFreelancers.length > 0 ? (
                 gig.appliedFreelancers.map((freelancer) => (
-                  <li key={freelancer._id}>
+                  <li key={freelancer._id} className='applicants-freelancer-item'>
                     {freelancer.username} - email: {freelancer.email} -   
-                    <button onClick={()=>{handleAcceptApplication(gig._id , freelancer._id)}}>accept</button>
+                    <button 
+                      className='applicants-accept-button'
+                      onClick={()=>{handleAcceptApplication(gig._id , freelancer._id)}}
+                    >
+                        accept
+                    </button>
                   </li>
                 ))
               ) : (
-                <li>No freelancers invited yet.</li>
+                <li className='applicants-no-freelancers'>No freelancers invited yet.</li>
               )}
             </ul>
           </div>
         ))
       ) : (
-        <p>No gigs available.</p>
+        <p className='.applicants-no-gigs'>No gigs available.</p>
       )}
+      </div>
     </div>
   );
 };
