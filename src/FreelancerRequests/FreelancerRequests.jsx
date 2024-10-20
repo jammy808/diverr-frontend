@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function FreelancerRequests() {
   const [gigs, setGigs] = useState([]);
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const handleAcceptInvite = async (gigId, freelancerId) => {
     const data = { gigId };
@@ -15,7 +16,7 @@ function FreelancerRequests() {
         withCredentials: true,
       };
   
-      const response = await axios.post('http://localhost:8000/accept/invite', data, config );
+      const response = await axios.post(`${SERVER_URL}/accept/invite`, data, config );
       
       fetchGigs();
       
@@ -30,7 +31,7 @@ function FreelancerRequests() {
       const config = {
           withCredentials: true,
       };    
-      const response = await axios.get(`http://localhost:8000/invites/freelancer`, config);
+      const response = await axios.get(`${SERVER_URL}/invites/freelancer`, config);
       setGigs(response.data.gigs);
     } catch (error) {
       console.error('Error fetching gigs:', error);

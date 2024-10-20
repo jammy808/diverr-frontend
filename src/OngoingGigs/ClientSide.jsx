@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './ClientSide.css';
+
 
 function ClientSide() {
   const [user , setUser] = useState("");
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/get/client', {
+      const response = await axios.get(`${SERVER_URL}/get/client`, {
         withCredentials: true,
       });
       setUser(response.data);
@@ -26,24 +29,32 @@ function ClientSide() {
   }, []);
 
   return (
-    <div>
-      <h1>Ongoing Gigs</h1>
+    <div className='main-client-container'>
+      <div className='client-gigs-container'>
+      <h1 className='client-header'>Ongoing Gigs</h1>
 
       {user.gigs?.length > 0 ? (
-        <ul>
+        <ul className='client-gigs-list'>
           {user.gigs
             .filter((gig) => gig.status === "Ongoing")
             .map((gig) => (
-                <li key={gig._id}>
-                <h3>{gig.title}</h3>
-                <button onClick={() => handleNavigate(gig.workingFreelancer.publicKey)}>Pay</button>
+                <li key={gig._id} className='client-gig-card'>
+                <h3 className='client-gig-title'>{gig.title}</h3>
+                <button 
+                  className='client-pay-button'
+                  onClick={() => handleNavigate(gig.workingFreelancer.publicKey)}
+                >
+                  Pay
+                  </button>
                 </li>
             ))}
         </ul>
       ) : (
-        <p>You have no ongoing gigs</p>
+        <p className='client-no-gigs'>You have no ongoing gigs</p>
       )}
+      </div>
     </div>
+    
   )
 }
 

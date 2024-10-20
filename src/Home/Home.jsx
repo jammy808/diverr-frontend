@@ -14,6 +14,7 @@ import img4 from './img4.png'
 function Home() {
   const [user , setUser] = useState("");
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const images = [
     'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_delivery_web_tile/v1/attachments/delivery/asset/892bad84259a1c9c66d4c30ef3505e29-1726594972/IMG_6455.jpeg',
@@ -37,7 +38,7 @@ function Home() {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/profile', {
+      const response = await axios.get(`${SERVER_URL}/profile`, {
         withCredentials: true,
       });
       setUser(response.data.user);

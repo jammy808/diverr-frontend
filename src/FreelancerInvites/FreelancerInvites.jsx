@@ -4,6 +4,7 @@ import './FreelancerInvites.css'; // Ensure that you import the CSS
 
 const FreelancerInvites = () => {
   const [gigs, setGigs] = useState([]);
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const handleCancelInvite = async (gigId, freelancerId) => {
     const data = { gigId, freelancerId };
@@ -16,7 +17,7 @@ const FreelancerInvites = () => {
         withCredentials: true,
       };
   
-      const response = await axios.delete('http://localhost:8000/cancel-invite', {
+      const response = await axios.delete(`${SERVER_URL}/cancel-invite`, {
         data, 
         ...config,
       });
@@ -34,7 +35,7 @@ const FreelancerInvites = () => {
       const config = {
           withCredentials: true,
       };    
-      const response = await axios.get(`http://localhost:8000/invites/client`, config);
+      const response = await axios.get(`${SERVER_URL}/invites/client`, config);
       setGigs(response.data.gigs);
     } catch (error) {
       console.error('Error fetching gigs:', error);

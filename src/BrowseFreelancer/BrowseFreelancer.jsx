@@ -9,8 +9,10 @@ function BrowseFreelancer() {
   const navigate = useNavigate();
 
   const fetchFreelancers = async () => {
+    const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+    
     try {
-      const response = await axios.get('http://localhost:8000/get/freelancers'); 
+      const response = await axios.get(`${SERVER_URL}/get/freelancers`); 
       setFreelancers(response.data);
       setLoading(false);
     } catch (err) {

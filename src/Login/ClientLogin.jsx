@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ClientLogin.css'; // Import the CSS file
 
-
 function ClientLogin() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = { username, password };
-
+    console.log(SERVER_URL)
     try {
-      const response = await fetch('http://localhost:8000/login/client', {
+      const response = await fetch(`${SERVER_URL}/login/client`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

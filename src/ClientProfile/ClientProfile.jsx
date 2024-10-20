@@ -29,6 +29,7 @@ function Profile() {
 
   const [user , setUser] = useState("");
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
@@ -143,7 +144,7 @@ function Profile() {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/profile', {
+      const response = await axios.get(`${SERVER_URL}/profile`, {
         withCredentials: true,
       });
       setUser(response.data.user);
@@ -154,7 +155,7 @@ function Profile() {
 
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:8000/logout', { withCredentials: true });
+      await axios.get(`${SERVER_URL}/logout`, { withCredentials: true });
       navigate('/');
     } catch (error) {
       console.error('Logout failed:', error.response ? error.response.data : error.message);

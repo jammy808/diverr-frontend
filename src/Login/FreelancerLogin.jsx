@@ -7,6 +7,7 @@ function FreelancerLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -17,7 +18,7 @@ function FreelancerLogin() {
 
     try {
       // Make POST request to the server
-      const response = await fetch('http://localhost:8000/login/freelancer', {
+      const response = await fetch(`${SERVER_URL}/login/freelancer`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Specify the content type

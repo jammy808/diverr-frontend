@@ -9,6 +9,7 @@ function FreelancerRegister() {
   const [email, setEmail] = useState('');
   const [publicKey , setPublicKey] = useState('');
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -19,7 +20,7 @@ function FreelancerRegister() {
 
     try {
       // Make POST request to the server
-      const response = await fetch('http://localhost:8000/register/freelancer', {
+      const response = await fetch(`${SERVER_URL}/register/freelancer`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Specify the content type

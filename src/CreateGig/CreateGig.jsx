@@ -117,6 +117,7 @@ const CreateGig = () => {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
   
 
    // Function to handle search and filtering
@@ -173,7 +174,7 @@ const CreateGig = () => {
         },
         withCredentials: true
       };
-      const response = await axios.post('http://localhost:8000/gig', gigData, config);
+      const response = await axios.post(`${SERVER_URL}/gig`, gigData, config);
 
       setSuccessMessage('Gig created successfully!');
       setTitle('');

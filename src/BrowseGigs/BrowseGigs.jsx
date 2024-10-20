@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const BrowseGigs = () => {
   const [gigs, setGigs] = useState([]);
   const navigate = useNavigate();
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const handleNavigate = (gig) => {
     navigate('/view/gig', { state: { gig } });
@@ -14,7 +15,7 @@ const BrowseGigs = () => {
   useEffect(() => {
     const fetchGigs = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/browse/gigs'); // Replace with your backend endpointment
+        const response = await axios.get(`${SERVER_URL}/browse/gigs`);
         console.log(response.data)
         setGigs(response.data);
       } catch (error) {

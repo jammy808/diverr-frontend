@@ -4,10 +4,11 @@ import axios from 'axios';
 
 function FreelancerSide() {
   const [user , setUser] = useState("");
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/get/freelancer', {
+      const response = await axios.get(`${SERVER_URL}/get/freelancer`, {
         withCredentials: true,
       });
       setUser(response.data);
