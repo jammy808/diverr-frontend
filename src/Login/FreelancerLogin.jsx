@@ -44,19 +44,18 @@ function FreelancerLogin() {
   };
 
   return (
-    <div className='wrapper-2'>
+    <div className='freelancer-login-wrapper'>
 
       <div className='gif-container-2'>
         <img className='gif' src="/src/Login/Login_images/freelancer_login.gif" alt="" />
       </div>
 
-      <div className='form-container-2'>
-        <h2 className='title-text-2'>Freelancer Login</h2>
+      <div className='freelancer-login-form-container-2'>
+        <h2 className='freelancer-login-title-text-2'>Freelancer Login</h2>
 
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group-2">
-            <label htmlFor="username" className="label"></label>
+          <div className="freelancer-login-form-group">
             <input
               type="text"
               id="username"
@@ -64,12 +63,11 @@ function FreelancerLogin() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="input"
+              className="freelancer-login-input"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="password" className="label"></label>
+          <div className="freelancer-login-form-group">
             <input
               type="password"
               id="password"
@@ -77,7 +75,7 @@ function FreelancerLogin() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="input"
+              className="freelancer-login-input"
             />
           </div>
 

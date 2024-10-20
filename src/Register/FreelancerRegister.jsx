@@ -47,18 +47,17 @@ function FreelancerRegister() {
   };
 
   return (
-    <div className='wrapper-4'>
+    <div className='freelancer-register-wrapper-4'>
 
       <div className="gif-container-4">
         <img className='gif-4' src="/src/Register/Register_Images/freelancer_register.gif" alt="" />
       </div>
 
-      <div className='form-container-4'>
-        <h2 className='title-text-4'>Freelancer Sign Up</h2>
+      <div className='freelancer-register-form-container-4'>
+        <h2 className='freelancer-register-title-text-4'>Freelancer Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className='form-group-4'>
             
-            <label htmlFor="username" ></label>
             <input
               type="text"
               id="username"
@@ -66,11 +65,10 @@ function FreelancerRegister() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className='input'
+              className='freelancer-register-input '
             />
           </div>
           <div >
-            <label htmlFor="email" ></label>
             <input
               type="text"
               id="username"
@@ -78,13 +76,12 @@ function FreelancerRegister() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className='input'
+              className='freelancer-register-input '
 
             />
           </div>
 
           <div>
-          <label htmlFor="publicKey" ></label>
             <input
               type="text"
               id="username"
@@ -92,12 +89,11 @@ function FreelancerRegister() {
               value={publicKey}
               onChange={(e) => setPublicKey(e.target.value)}
               required
-              className='input'
+              className='freelancer-register-input '
             />
           </div>
 
           <div >
-            <label htmlFor="password" ></label>
             <input
               type="password"
               id="password"
@@ -105,11 +101,11 @@ function FreelancerRegister() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className='input'
+              className='freelancer-register-input '
 
             />
           </div>
-          <button type="submit" className='button'>
+          <button type="submit" className='freelancer-register-button'>
             Sign Up
           </button>
         </form>

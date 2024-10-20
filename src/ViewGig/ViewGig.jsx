@@ -14,11 +14,12 @@ function ViewGig() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const skills = ['JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'HTML', 'CSS', 'REST APIs'];
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const fetchProfile = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:8000/profile', {
+      const response = await axios.get(`${SERVER_URL}/profile`, {
         withCredentials: true,
       });
       setUser(response.data.user);
@@ -44,7 +45,7 @@ function ViewGig() {
         withCredentials: true,
       };
 
-      const response = await axios.post('http://localhost:8000/apply', data, config);
+      const response = await axios.post(`${SERVER_URL}/apply`, data, config);
       fetchProfile();
       console.log('Applied:', response.data);
     } catch (err) {

@@ -38,12 +38,12 @@ function ClientLogin() {
   };
 
   return (
-    <div className="wrapper">
-      <div className="form-container">
-        <h2 className="title-text">Client Login</h2>
+    <div className="login-client-wrapper">
+      <div className="client-login-form-container">
+        <h2 className="client-login-title-text">Client Login</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="client-login-form-group">
             <input
               type="text"
               id="username"
@@ -51,10 +51,10 @@ function ClientLogin() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className="input"
+              className="client-login-input"
             />
           </div>
-          <div className="form-group">
+          <div className="client-login-form-group">
             <input
               type="password"
               id="password"
@@ -62,7 +62,7 @@ function ClientLogin() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="input"
+              className="client-login-input"
             />
           </div>
           <button type="submit" className="button">
@@ -75,7 +75,7 @@ function ClientLogin() {
         </div>
       </div>
 
-      <div className="gif-container">
+      <div className="client-login-gif-container">
         <img className='gif' src="/src/Login/Login_images/client_login.gif" alt="" />
       </div>
     </div>

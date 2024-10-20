@@ -1,0 +1,68 @@
+.payment-container {
+  background-color: hsl(0, 0%, 83%); /* Light grey background */
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow:  0px 0px 30px 2px #000000; /* Gives a hand-drawn effect */
+  font-family: 'Arial', sans-serif; /* Hand-drawn font style */
+  position: relative;
+  background-color: #FAFAE4;
+}
+
+.payment-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+    text-align: center; /* Centers text horizontally */
+    position: relative; /* Allows for fine-tuning positioning */
+    top: 0; /* Sticks it at the top */
+    left: 50%; /* Positions it in the center horizontally */
+    transform: translateX(-50%); /* Adjusts the position by half the element's width */
+  }
+  
+
+.payment-to {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: black;
+  word-break: break-all; /* Ensures long text breaks into new lines */
+}
+
+.payment-label {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
+  color: black;
+}
+
+.payment-input {
+  width: 90%;
+  padding: 8px;
+  border-radius: 5px;
+ 
+  
+  margin-bottom: 20px;
+  box-shadow:  0px 0px 0px 2px black;
+  font-family: 'Arial', sans-serif;
+}
+
+.payment-button {
+  padding: 10px 20px;
+  background-color: #9370DE; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 3px 3px 0px 0px black;
+}
+
+.payment-button:hover {
+  background-color: black; /* Darker blue on hover */
+}
+

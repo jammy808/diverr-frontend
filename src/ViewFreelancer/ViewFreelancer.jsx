@@ -12,6 +12,7 @@ function ViewFreelancer() {
   const { id } = location.state || {};
   const [user, setUser] = useState("");
   const [freelancer, setFreelancer] = useState("");
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const skills = [
     'HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Angular', 
@@ -23,7 +24,7 @@ function ViewFreelancer() {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/get/client', {
+      const response = await axios.get(`${SERVER_URL}/get/client`, {
         withCredentials: true,
       });
       setUser(response.data);
@@ -41,7 +42,7 @@ function ViewFreelancer() {
         withCredentials: true,
       };
   
-      const response = await axios.get(`http://localhost:8000/getFreelancer/${id}`, config);
+      const response = await axios.get(`${SERVER_URL}/getFreelancer/${id}`, config);
       setFreelancer(response.data);
     } catch (error) {
       console.error('Error fetching freelancer data:', error);
@@ -63,7 +64,7 @@ function ViewFreelancer() {
       };
       
       // Sending POST request to the invite endpoint
-      const response = await axios.post('http://localhost:8000/invite', data, config);
+      const response = await axios.post(`${SERVER_URL}/invite`, data, config);
       
       fetchFreelancer();
       console.log('Invite sent:', response.data);

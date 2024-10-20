@@ -10,7 +10,7 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
-
+import './pay.css'
 import { SendTokens } from '../SendTokens/SendTokens';
 
 function Pay() {
@@ -26,12 +26,23 @@ function Pay() {
     <ConnectionProvider endpoint={endpoint}>
           <WalletProvider wallets={[]} autoConnect>
               <WalletModalProvider>
-                <div style={{ display: 'flex', justifyContent: "space-between" }}>
-                  <WalletMultiButton />
-                  <WalletDisconnectButton />
-                </div>
+                <div className='pay-container'>
+                  <div style={{ display: 'flex', justifyContent: "space-between" }}>
+                    <div className='connect'>
+                      <p>Connect Your Wallet</p>
+                      <WalletMultiButton />
+                    </div>
+                    <div className='connect'>
+                      <p>Disconnect Your Wallet</p>
+                      <WalletDisconnectButton />
+                    </div>
+                    
+                  </div>
+                  <p className='proceed-to-pay'>Proceed To Pay with Diverr</p>
 
-                <SendTokens toKey={toKey}/>
+                  <SendTokens toKey={toKey}/>
+                </div>
+                
                 
               </WalletModalProvider>
           </WalletProvider>

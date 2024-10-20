@@ -82,7 +82,7 @@ function Home() {
             <div style={{paddingTop:'9px' , marginRight:'1em' , marginLeft:'1em'}}> 
               {user.type === "Client" ? 
               ( <Link to="/profile/client/createGig" className='explore'><AccountCircleIcon fontSize='large'/></Link> ) : 
-              ( <Link to="/profile/freelancer"className='explore'><AccountCircleIcon fontSize='large'/></Link> ) }
+              ( <Link to="/profile/freelancer/view/requests"className='explore'><AccountCircleIcon fontSize='large'/></Link> ) }
             </div>
           ) : 
           (<CDropdown dark>
@@ -102,13 +102,13 @@ function Home() {
       <div className='carousel-container'>
         <CCarousel controls indicators>
           <CCarouselItem>
-            <CImage className="image" src={img1} alt="slide 1" />
+            <CImage className="image" src={img2} alt="slide 1" />
           </CCarouselItem>
           <CCarouselItem>
-            <CImage className="image" src={img2} alt="slide 2" />
+            <CImage className="image" src={img1} alt="slide 2" />
           </CCarouselItem>
           <CCarouselItem>
-            <CImage className="image" src={'https://coreui.io/react/docs/static/angular-2f3764e2ec8b0b47ebe68f2f80260ef1.jpg'} alt="slide 3" />
+            <CImage className="image" src={'https://chainstack.com/wp-content/uploads/2023/09/Solana-transaction-1024x576.jpg'} alt="slide 3" />
           </CCarouselItem>
         </CCarousel>
       </div>

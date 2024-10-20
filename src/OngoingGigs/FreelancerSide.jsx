@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 //import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import './FreelancerSide.css'
 
 function FreelancerSide() {
   const [user , setUser] = useState("");
@@ -22,22 +23,24 @@ function FreelancerSide() {
   }, []);
 
   return (
-    <div>
-      <h1>Ongoing Gigs</h1>
+    <div className="main-freelancer-ongoing-gig-container">
+      <div className="freelancer-ongoing-gig-container">
+      <h1 className="freelancer-ongoing-gig-header">Ongoing Gigs</h1>
 
       {user.gigs?.length > 0 ? (
         <ul>
           {user.gigs
             .filter((gig) => gig.status === "Ongoing")
             .map((gig) => (
-                <li key={gig._id}>
-                <h3>{gig.title}</h3>
+                <li key={gig._id} className="freelancer-ongoing-gig-card">
+                <h3 className="freelancer-ongoing-gig-title">{gig.title}</h3>
                 </li>
             ))}
         </ul>
       ) : (
-        <p>You have no ongoing gigs</p>
+        <p className="freelancer-ongoing-gig-no-gigs">You have no ongoing gigs</p>
       )}
+      </div>
     </div>
   )
 }

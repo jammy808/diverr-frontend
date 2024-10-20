@@ -1,0 +1,141 @@
+body {
+    overflow-y: hidden;
+    height: 100%;
+    margin: 0;
+}
+
+.outer-freelancer-container {
+    display: block;
+    justify-content: center; /* Center the inner container */
+    align-items: flex-start; /* Align items at the top */
+    height: 100vh; /* Full viewport height */
+    background-color: #fff; /* Background color for the outer box */
+    padding: 20px; /* Padding for the outer box */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.freelancer-browse-gigs-container {
+    background-color: #c1b9fc; /* Light background color for the applied gigs section */
+    margin-top: 5px;
+    display: flex;
+    justify-content: center; /* Center the inner container */
+    align-items: flex-start;
+    flex-direction: column; 
+    height: 86vh;
+    /* height: 100%;  */
+    border-radius: 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.freelancer-browse-gigs-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-y: auto; /* Allow scrolling within this section */
+    height: calc(100% - 60px); /* Adjust height to fit within the container */
+}
+
+.freelancer-browse-gigs-header {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.freelancer-browse-gigs-header:hover {
+    color: #34495e;
+    border-bottom: 3px solid #2980b9;
+}
+
+.freelancer-browse-gigs-card {
+    background-color: #fafae4;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    width: 900px;
+    max-width: 900px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.freelancer-browse-gigs-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.freelancer-browse-gigs-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    text-align: left;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.freelancer-browse-gigs-title:hover {
+    color: #17395b;
+    background: none;
+}
+
+.freelancer-browse-gigs-description,
+.freelancer-browse-gigs-budget,
+.freelancer-browse-gigs-client,
+.freelancer-browse-gigs-applied-freelancers,
+.freelancer-browse-gigs-invited-freelancers,
+.freelancer-browse-gigs-created {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.freelancer-browse-gigs-no-gigs {
+    color: #b0b0b0;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.freelancer-browse-gigs-button {
+    background-color: #3498db; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.freelancer-browse-gigs-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+    .freelancer-browse-gigs-card {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .freelancer-browse-gigs-title {
+        font-size: 20px;
+    }
+
+    .freelancer-browse-gigs-description {
+        font-size: 14px;
+    }
+}

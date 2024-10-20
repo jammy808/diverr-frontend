@@ -47,12 +47,11 @@ function ClientRegister() {
   };
 
   return (
-    <div className="wrapper-3">
-      <div className="form-container-3">
-        <h2 className='title-text-3'>Client Sign Up</h2>
+    <div className="client-register-wrapper-3 ">
+      <div className="client-register-form-container-3">
+        <h2 className='client-register-title-text-3 '>Client Sign Up</h2>
         <form onSubmit={handleSubmit}>
-          <div className='form-group-3'>
-          <label htmlFor="username" ></label>
+          <div className='client-register-form-group-3'>
             <input
               type="text"
               id="username"
@@ -60,12 +59,11 @@ function ClientRegister() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-              className='input'
+              className='client-register-input '
             />
           </div>
 
-          <div>
-          <label htmlFor="email" ></label>
+          <div className='client-register-form-group-3' >
             <input
               type="text"
               id="username"
@@ -73,12 +71,11 @@ function ClientRegister() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className='input'
+              className='client-register-input '
             />
           </div>
 
-          <div>
-          <label htmlFor="publicKey" ></label>
+          <div className='client-register-form-group-3'>
             <input
               type="text"
               id="username"
@@ -86,12 +83,11 @@ function ClientRegister() {
               value={publicKey}
               onChange={(e) => setPublicKey(e.target.value)}
               required
-              className='input'
+              className='client-register-input  '
             />
           </div>
 
-          <div >
-          <label htmlFor="password" ></label>
+          <div className='client-register-form-group-3'>
             <input
               type="password"
               id="password"
@@ -99,10 +95,10 @@ function ClientRegister() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className='input'
+              className='client-register-input  '
             />
           </div>
-          <button type="submit" className="button">
+          <button type="submit" className="client-register-button">
             Sign Up
           </button>
         </form>

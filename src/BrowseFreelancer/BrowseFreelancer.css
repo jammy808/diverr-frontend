@@ -1,0 +1,143 @@
+body {
+    overflow-y: hidden;
+    height: 100%;
+    margin: 0;
+}
+
+.outer-freelancer-container {
+    display: block;
+    justify-content: center; /* Center the inner container */
+    align-items: flex-start; /* Align items at the top */
+    height: 100vh; /* Full viewport height */
+    background-color: #fff; /* Background color for the outer box */
+    padding: 20px; /* Padding for the outer box */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.freelancer-browse-freelancers-container {
+    background-color: #c1b9fc; /* Light background color for the freelancers section */
+    margin-top: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; 
+    height: 86vh; /* Full height of the viewport */
+    border-radius: 15px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow-y: auto;
+}
+
+.freelancer-browse-freelancers-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-y: auto; /* Allow scrolling within this section */
+    height: calc(100% - 60px); /* Adjust height to fit within the container */
+}
+
+.freelancer-browse-freelancers-header {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.freelancer-browse-freelancers-header:hover {
+    color: #34495e;
+    border-bottom: 3px solid #2980b9;
+}
+
+
+.freelancer-list {
+    width: 100%; /* Full width of the container */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center the items */
+    list-style-type: none;
+}
+
+.freelancer-card {
+    background-color: #fafae4;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    width: 900px;
+    max-width: 900px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.freelancer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.freelancer-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0px;
+    color: #2c3e50;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    /* border-bottom: 2px solid #e0e0e0; */
+    padding-bottom: 10px;
+    text-align: left;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.freelancer-card-title:hover {
+    color: #2980b9;
+    background: none;
+}
+
+
+.freelancer-card-email {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.freelancer-card-button {
+    background-color: #3498db; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.freelancer-card-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+    .freelancer-card {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .freelancer-card-title {
+        font-size: 20px;
+    }
+
+    .freelancer-card-email {
+        font-size: 14px;
+    }
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './FreelancerRequests.css'
 
 function FreelancerRequests() {
   const [gigs, setGigs] = useState([]);
@@ -44,20 +45,27 @@ function FreelancerRequests() {
   }, []);
 
   return (
-    <div>
-      <h2>Your Invitations</h2>
+    <div className='main-freelancer-request-container'>
+      <div className='freelancer-request-container'>
+      <h2 className='freelancer-request-header'>Your Invitations</h2>
       {gigs.length > 0 ? (
         gigs.map((gig) => (
-          <div key={gig._id} className="gig">
-            <h3>Gig: {gig.title}</h3>
-            <p>Description: {gig.description}</p>
-            <h4>Invited By: {gig.client.username}</h4>
-            <button onClick={()=>{handleAcceptInvite(gig._id)}}>accept</button>
+          <div key={gig._id} className="freelancer-request-card">
+            <h3 className="freelancer-request-gig-title" >{gig.title}</h3>
+            <p className="freelancer-request-gig-description">Description: {gig.description}</p>
+            <h4 className="freelancer-request-freelancer-title">Invited By: {gig.client.username}</h4>
+
+            <button 
+              className="freelancer-request-cancel-button"
+              onClick={()=>{handleAcceptInvite(gig._id)}}
+            >
+              Accept</button>
           </div>
         ))
       ) : (
-        <p>No gigs available.</p>
+        <p className="freelancer-request-no-gigs">No gigs available.</p>
       )}
+    </div>
     </div>
   )
 }

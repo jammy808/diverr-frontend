@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useConnection, useWallet } from "@solana/wallet-adapter-react"
 import { LAMPORTS_PER_SOL, PublicKey, SystemProgram, Transaction} from "@solana/web3.js";
 import { Buffer } from 'buffer';
+import './send.css'
 window.Buffer = Buffer;
 
 
@@ -39,13 +40,16 @@ export function SendTokens({toKey}) {
         }
     }    
 
-    return <div>
-        <h1>{toKey}</h1>
-       
+    return <div className='payment-container'>
+        <h2 className="payment-title">You are paying to</h2>
+        <h1 className='payment-to'>{toKey}</h1>
+
+        <label className="payment-label" htmlFor="amount">Enter amount</label>
         <input id="amount" type="text" placeholder="Amount" 
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
+        className='payment-input'
         />
-        <button onClick={sendTokens}>Send</button>
+        <button onClick={sendTokens} className='payment-button'>Pay</button>
     </div>
 }

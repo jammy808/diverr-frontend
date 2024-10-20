@@ -4,13 +4,14 @@ import './ViewApplicants.css'
 
 const ViewApplicants = () => {
   const [gigs, setGigs] = useState([]);
+  const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const fetchGigs = async () => {
     try {
       const config = {
           withCredentials: true,
       };    
-      const response = await axios.get(`http://localhost:8000/get/applicants`, config);
+      const response = await axios.get(`${SERVER_URL}/get/applicants`, config);
       setGigs(response.data.gigs);
     } catch (error) {
       console.error('Error fetching gigs:', error);
