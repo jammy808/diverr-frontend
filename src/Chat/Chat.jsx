@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io('http://localhost:8000'); // Replace with your backend's URL
+const SERVER_URL = import.meta.env.VITE_SERVER_URL;
+const socket = io(`${SERVER_URL}`); // Replace with your backend's URL
 
 const Chat = () => {
   const location = useLocation(); // Access the state passed by navigate()
@@ -14,7 +15,7 @@ const Chat = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/messages/${gigId}`);
+      const response = await fetch(`${SERVER_URL}/api/messages/${gigId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch messages');
       }
