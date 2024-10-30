@@ -21,6 +21,7 @@ import FreelancerInvites from './FreelancerInvites/FreelancerInvites';
 import ViewApplicants from './ViewApplicants/ViewApplicants';
 import ClientSide from './OngoingGigs/ClientSide';
 import Pay from './Pay/Pay';
+import Chat from './Chat/Chat';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path="/browse/freelancers" element={<BrowseFreelancer />} />
         <Route path="/view/freelancer" element={<ViewFreelancer />} />
         <Route path="/pay" element={<Pay />} />
+        <Route path="/chat" element={<Chat />} />
     
       </Routes>
     </Router>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-//import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './FreelancerSide.css'
 
 function FreelancerSide() {
   const [user , setUser] = useState("");
+  const navigate = useNavigate();
   const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
   const fetchProfile = async () => {
@@ -16,6 +17,10 @@ function FreelancerSide() {
     } catch (err) {
       console.log(err.response ? err.response.data.message : 'Failed to fetch profile');
     }
+  };
+
+  const handleChat = (gigId , senderId , senderModel) => {
+    navigate('/chat', { state: { gigId , senderId , senderModel } });
   };
 
   useEffect(() => {
@@ -34,6 +39,13 @@ function FreelancerSide() {
             .map((gig) => (
                 <li key={gig._id} className="freelancer-ongoing-gig-card">
                 <h3 className="freelancer-ongoing-gig-title">{gig.title}</h3>
+                <button 
+                  className='client-pay-button'
+                  onClick={() => handleChat(gig._id , user._id , 'Freelancer')}
+                >
+                  Chat
+                  </button>
+
                 </li>
             ))}
         </ul>

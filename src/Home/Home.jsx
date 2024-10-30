@@ -102,13 +102,13 @@ function Home() {
       <div className='carousel-container'>
         <CCarousel controls indicators>
           <CCarouselItem>
-            <CImage className="image" src={img2} alt="slide 1" />
+            <CImage className="image" src={'https://chainstack.com/wp-content/uploads/2023/09/Solana-transaction-1024x576.jpg'} alt="slide 1" />
           </CCarouselItem>
           <CCarouselItem>
-            <CImage className="image" src={img1} alt="slide 2" />
+            <CImage className="image" src={img2} alt="slide 2" />
           </CCarouselItem>
           <CCarouselItem>
-            <CImage className="image" src={'https://chainstack.com/wp-content/uploads/2023/09/Solana-transaction-1024x576.jpg'} alt="slide 3" />
+            <CImage className="image" src={img1} alt="slide 3" />
           </CCarouselItem>
         </CCarousel>
       </div>

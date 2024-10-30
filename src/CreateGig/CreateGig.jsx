@@ -198,7 +198,7 @@ const CreateGig = () => {
     <div className='body-bg'>
       <div className='container-form'>
         <div className='form-wrapper'>
-          {successMessage && <div className="success-message">{successMessage}</div>}
+          {successMessage && <div className="success-message" style={{color:'green' , marginLeft:'40%'}}>{successMessage}</div>}
           {errors.general && <div className="error-message">{errors.general}</div>}
 
           <form onSubmit={handleSubmit} className='form'>

@@ -24,6 +24,10 @@ function ClientSide() {
     navigate('/pay', { state: { toKey } });
   };
 
+  const handleChat = (gigId , senderId , senderModel) => {
+    navigate('/chat', { state: { gigId , senderId , senderModel } });
+  };
+
   useEffect(() => {
     fetchProfile();
   }, []);
@@ -31,7 +35,7 @@ function ClientSide() {
   return (
     <div className='main-client-container'>
       <div className='client-gigs-container'>
-      <h1 className='client-header'>Ongoing Gigs</h1>
+      <h1 className='client-header'>Ongoing Gig</h1>
 
       {user.gigs?.length > 0 ? (
         <ul className='client-gigs-list'>
@@ -42,10 +46,18 @@ function ClientSide() {
                 <h3 className='client-gig-title'>{gig.title}</h3>
                 <button 
                   className='client-pay-button'
+                  onClick={() => handleChat(gig._id , user._id , 'Client')}
+                >
+                  Chat
+                  </button>
+
+                  <button 
+                  className='client-pay-button'
                   onClick={() => handleNavigate(gig.workingFreelancer.publicKey)}
                 >
                   Pay
                   </button>
+
                 </li>
             ))}
         </ul>
